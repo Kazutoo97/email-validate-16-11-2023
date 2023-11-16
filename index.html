@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Validate Email</title>
+  </head>
+  <body>
+    <div class="input-box">
+      <input type="email" placeholder="Enter your Email" />
+      <i class="ri-mail-line email-icon"></i>
+    </div>
+
+    <script>
+      const input = document.querySelector("input"),
+        emailIcon = document.querySelector(".email-icon");
+
+      input.addEventListener("keyup", () => {
+        const regExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        if (input.value === "") {
+          emailIcon.classList.replace(
+            "ri-checkbox-circle-line",
+            "ri-mail-line"
+          );
+          emailIcon.style.color = "#dc2626";
+        } else if (input.value.match(regExp)) {
+          emailIcon.classList.replace(
+            "ri-mail-line",
+            "ri-checkbox-circle-line"
+          );
+          emailIcon.style.color = "#22c55e";
+        } else {
+          emailIcon.classList.replace(
+            "ri-checkbox-circle-line",
+            "ri-mail-line"
+          );
+          emailIcon.style.color = "#dc2626";
+        }
+      });
+    </script>
+  </body>
+</html>
